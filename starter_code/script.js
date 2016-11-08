@@ -1,15 +1,17 @@
 // Task 1: Create a function that randomly chooses among 'rock', 'paper', or 'scissors'.
 var generateComputerChoice = function () {
     // Task 1, Step 1: Create an array with three elements ("rock", "paper" and "scissors").
-
+var gameChoice = ["rock", "paper", "scissors"];
     // Task 1, Step 2: Use the JavaScript Math function to generate a random whole
     // number between 0 and 2. Be sure to save it to a variable.
-
+var random = Math.floor(Math.random() *3) ;
+    
     // Task 1, Step 3: Use this randomly generated number to pull a value from the
     // array (eg myArray[randomNum])
-
+var choice = gameChoice[random];
     // Task 1, Step 4: return this new value
-};
+    return choice;
+}; 
 
 // Task 2: Create a function that compares the userChoice and the computerChoice
 // to decide who won.
@@ -18,10 +20,31 @@ var pickWinner = function (userChoice, computerChoice) {
     console.log("computer choice: " + computerChoice);
     // Task 2, Step 1: Create an "if/else if/else" statement that compares the
     // userChoice and computerChoice under any possible game outcome.
+    var winner;
+    
+      if (userChoice === computerChoice)  {
+          winner = "Draw";
+      } else if (userChoice === "rock" && computerChoice === "paper"){
+          winner = "Computer";
+      } else if (userChoice === "rock" && computerChoice === "scissors"){
+          winner = "User";
+      } else if (userChoice ==="paper" && computerChoice === "rock"){
+          winner = "User";
+      } else if (userChoice ==="paper" && computerChoice === "scissors"){
+          winner = "Computer";
+      } else if (userChoice === "scissors" && computerChoice === "paper"){
+          winner = "User";
+      } else if (userChoice === "scissors" && computerChoice === "rock"){
+          winner = "Computer";
+      }
+   
+    
 
+       
+   
     // Task 2, Step 2: Depending on who is the winner of the game console.log
     // either "user wins", "computer wins" or "draw"
-
+console.log("Winner:" + winner);
     // Task 4: Show `computerChoice` in HTML after the words "Computer's choice:"
     // Task 5: Show the winner in HTML after the word "Winner:"
 };
